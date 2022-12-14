@@ -198,7 +198,6 @@ function App() {
               }
             </div>
             <Button variant="outline-primary" type="submit">Add Product</Button>{' '}
-            {/* <button type="submit"> Add Product </button> */}
           </form>
         </div>
       </div>
