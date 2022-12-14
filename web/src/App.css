@@ -1,0 +1,30 @@
+.main{
+  height: calc(100vh);
+  background-color: aqua;
+}
+.nav{
+  height: 80px;
+  background-color: black;
+  color: white;
+}
+.body-div{
+  background-color: yellow;
+}
+.form-div{
+  display: flex;
+  background-color: green;
+  justify-content: center;
+  align-items: center;
+}
+.theForm{
+  display: flex;
+  border: 1px solid black;
+}
+.theForm>form, .form-row{
+  display: flex;
+  flex-direction: column;
+}
+.products-container{
+  height: 300px;
+  overflow: scroll;
+}
