@@ -1,5 +1,4 @@
 import express from 'express';
-import path from 'path';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
@@ -21,9 +20,6 @@ let productSchema = new mongoose.Schema({
 const productModel = mongoose.model('products', productSchema);
 
 
-
-
-
 app.post('/product', (req, res) => {
 
     const body = req.body;
@@ -42,13 +38,6 @@ app.post('/product', (req, res) => {
     console.log(body.name)
     console.log(body.price)
     console.log(body.description)
-
-    // products.push({
-    //     id: `${new Date().getTime()}`,
-    //     name: body.name,
-    //     price: body.price,
-    //     description: body.description
-    // });
 
     productModel.create({
         name: body.name,
@@ -133,13 +122,6 @@ app.delete('/product/:id', (req, res) => {
             })
         }
     });
-
-
-
-
-
-
-
 
 })
 
