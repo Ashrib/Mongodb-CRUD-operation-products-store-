@@ -5,6 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 
 function App() {
 
@@ -161,7 +162,7 @@ function App() {
               />
               {
                 (myFormik.touched.productName && Boolean(myFormik.errors.productName)) ?
-                  <span style={{ color: "red" }}>{myFormik.errors.productName}</span>
+                  <span >{myFormik.errors.productName}</span>
                   :
                   null
               }
@@ -176,7 +177,7 @@ function App() {
               />
               {
                 (myFormik.touched.productPrice && Boolean(myFormik.errors.productPrice)) ?
-                  <span style={{ color: "red" }}>{myFormik.errors.productPrice}</span>
+                  <span >{myFormik.errors.productPrice}</span>
                   :
                   null
               }
@@ -191,13 +192,13 @@ function App() {
               />
               {
                 (myFormik.touched.productDescription && Boolean(myFormik.errors.productDescription)) ?
-                  <span style={{ color: "red" }}>{myFormik.errors.productDescription}</span>
+                  <span >{myFormik.errors.productDescription}</span>
                   :
                   null
               }
             </div>
-
-        <button type="submit"> Submit </button>
+            <Button variant="outline-primary" type="submit">Add Product</Button>{' '}
+            {/* <button type="submit"> Add Product </button> */}
           </form>
         </div>
       </div>
