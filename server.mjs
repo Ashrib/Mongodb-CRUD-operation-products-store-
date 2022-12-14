@@ -1,10 +1,11 @@
 import express from 'express';
+import path from 'path';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
 const app = express()
 const port = process.env.PORT || 5001;
-const mongodbURI = process.env.mongodbURI || "mongodb+srv://dbuser1:123mypassword@cluster0.m20zxpk.mongodb.net/?retryWrites=true&w=majority";
+const mongodbURI = process.env.mongodbURI || "mongodb+srv://dbuser:dbpassword@cluster0.gq9n2zr.mongodb.net/abcdatabase?retryWrites=true&w=majority";
 
 app.use(cors());
 app.use(express.json());
@@ -18,6 +19,9 @@ let productSchema = new mongoose.Schema({
     createdOn: { type: Date, default: Date.now }
 });
 const productModel = mongoose.model('products', productSchema);
+
+
+
 
 
 app.post('/product', (req, res) => {
@@ -38,6 +42,13 @@ app.post('/product', (req, res) => {
     console.log(body.name)
     console.log(body.price)
     console.log(body.description)
+
+    // products.push({
+    //     id: `${new Date().getTime()}`,
+    //     name: body.name,
+    //     price: body.price,
+    //     description: body.description
+    // });
 
     productModel.create({
         name: body.name,
@@ -122,6 +133,13 @@ app.delete('/product/:id', (req, res) => {
             })
         }
     });
+
+
+
+
+
+
+
 
 })
 
