@@ -21,9 +21,6 @@ let productSchema = new mongoose.Schema({
 const productModel = mongoose.model('products', productSchema);
 
 
-
-
-
 app.post('/product', (req, res) => {
 
     const body = req.body;

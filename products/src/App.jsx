@@ -300,6 +300,7 @@ function App() {
                   <td>Rs.{eachProduct?.price}</td>
                   <td>{eachProduct?.description} <br />
                   <button onClick={() => {
+                    confirm("jhc")
                   deleteProduct(eachProduct._id)
                   }}>Delete</button>
 
@@ -323,7 +324,6 @@ function App() {
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -338,6 +338,13 @@ function App() {
                 onChange={editFormik.handleChange}
               />
             </Form.Group>
+            {
+              (editFormik.touched.productName && Boolean(editFormik.errors.productName)) ?
+                <span className='error-span'>{editFormik.errors.productName}</span>
+                :
+                null
+            }
+            
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Product Price</Form.Label>
               <Form.Control
@@ -349,11 +356,13 @@ function App() {
                 onChange={editFormik.handleChange}
               />
             </Form.Group>
-            
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
+            {
+              (editFormik.touched.productPrice && Boolean(editFormik.errors.productPrice)) ?
+                <span className='error-span'>{editFormik.errors.productPrice}</span>
+                :
+                null
+            }
+            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
               <Form.Label>Product Description</Form.Label>
               <Form.Control as="textarea" rows={3} 
                 id="productDescription"
@@ -362,6 +371,12 @@ function App() {
                 onChange={editFormik.handleChange}
               />
             </Form.Group>
+            {
+              (editFormik.touched.productDescription && Boolean(editFormik.errors.productDescription)) ?
+                <span className='error-span'>{editFormik.errors.productDescription}</span>
+                :
+                null
+            }
           </Form>
         </Modal.Body>
         <Modal.Footer>
