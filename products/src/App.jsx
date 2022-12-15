@@ -6,8 +6,16 @@ import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 
 function App() {
+  // for modal
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  //------------------------
 
   const [products, setProducts] = useState([])
   const [loadProduct, setLoadProduct] = useState(false)
@@ -296,7 +304,8 @@ function App() {
                   }}>Delete</button>
 
                   <button onClick={() => {
-                  editMode(eachProduct)
+                  editMode(eachProduct);
+                  handleShow();
                   }}>Update</button>
                   </td>
                 </tr>
@@ -312,7 +321,61 @@ function App() {
       </div>
 
       </div>
-
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Product Name</Form.Label>
+              <Form.Control
+                type="text"
+                autoFocus
+                id="productName"
+                placeholder="Product Name"
+                value={editFormik.values.productName}
+                onChange={editFormik.handleChange}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Product Price</Form.Label>
+              <Form.Control
+                type="text"
+                autoFocus
+                id="productPrice"
+                placeholder="Product Price"
+                value={editFormik.values.productPrice}
+                onChange={editFormik.handleChange}
+              />
+            </Form.Group>
+            
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Product Description</Form.Label>
+              <Form.Control as="textarea" rows={3} 
+                id="productDescription"
+                placeholder="Product Description"
+                value={editFormik.values.productDescription}
+                onChange={editFormik.handleChange}
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={() => {
+            handleClose();
+            editFormik.handleSubmit();
+            }}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
 
 
