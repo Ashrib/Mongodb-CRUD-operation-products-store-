@@ -209,74 +209,6 @@ function App() {
 
       <div className="products-container">
         <div >
-          {/* {products.map((eachProduct, i) => (
-            <div key={eachProduct._id} style={{ border: "1px solid black", padding: 10, margin: 10, borderRadius: 15 }}>
-              <h2>{eachProduct.name}</h2>
-              <p>{eachProduct._id}</p>
-              <h5>{eachProduct.price}</h5>
-              <p>{eachProduct.description}</p>
-
-              <button onClick={() => {
-                deleteProduct(eachProduct._id)
-              }}>delete</button>
-
-              <button onClick={() => {
-                editMode(eachProduct)
-              }}>edit</button>
-
-              {(isEditMode && editingProduct._id === eachProduct._id) ?
-                <div>
-
-                  <form onSubmit={editFormik.handleSubmit}>
-                    <input
-                      id="productName"
-                      placeholder="Product Name"
-                      value={editFormik.values.productName}
-                      onChange={editFormik.handleChange}
-                    />
-                    {
-                      (editFormik.touched.productName && Boolean(editFormik.errors.productName)) ?
-                        <span style={{ color: "red" }}>{editFormik.errors.productName}</span>
-                        :
-                        null
-                    }
-
-                    <br />
-                    <input
-                      id="productPrice"
-                      placeholder="Product Price"
-                      value={editFormik.values.productPrice}
-                      onChange={editFormik.handleChange}
-                    />
-                    {
-                      (editFormik.touched.productPrice && Boolean(editFormik.errors.productPrice)) ?
-                        <span style={{ color: "red" }}>{editFormik.errors.productPrice}</span>
-                        :
-                        null
-                    }
-
-                    <br />
-                    <input
-                      id="productDescription"
-                      placeholder="Product Description"
-                      value={editFormik.values.productDescription}
-                      onChange={editFormik.handleChange}
-                    />
-                    {
-                      (editFormik.touched.productDescription && Boolean(editFormik.errors.productDescription)) ?
-                        <span style={{ color: "red" }}>{editFormik.errors.productDescription}</span>
-                        :
-                        null
-                    }
-
-                    <br />
-                    <button type="submit"> edit </button>
-                  </form>
-
-                </div> : null}
-
-            </div>
-          ))} */}
           <div className='table'>     
             <Table responsive="xl"  striped bordered hover variant="dark"  >
               <thead>
@@ -388,10 +320,6 @@ function App() {
         </Modal.Footer>
       </Modal>
     </div>
-
-
-
-
 
   );
 }
