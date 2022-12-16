@@ -4,7 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 const app = express()
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 3000;
 const mongodbURI = process.env.mongodbURI || "mongodb+srv://dbuser1:123mypassword@cluster0.m20zxpk.mongodb.net/dbuser1?retryWrites=true&w=majority";
 mongoose.connect(mongodbURI);
 app.use(cors());
