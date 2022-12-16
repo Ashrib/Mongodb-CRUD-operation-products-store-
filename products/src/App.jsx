@@ -8,6 +8,7 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import Spinner from 'react-bootstrap/Spinner';
 
 let baseUrl = ""
 if (window.location.href.split(":")[0] === "http") {
@@ -23,6 +24,16 @@ function App() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   //------------------------
+  // spinner
+  
+  const [isSpinner, setIsSpinner] = useState(null);
+  if (isSpinner === true) {
+    document.querySelector(".spinner-div").style.display = "block"
+  }
+  if (isSpinner === false) {
+    document.querySelector(".spinner-div").style.display = "none"
+  }
+// ============
 
   const [products, setProducts] = useState([]);
   const [loadProduct, setLoadProduct] = useState(false);
@@ -46,7 +57,11 @@ function App() {
       const response = await axios.delete(`${baseUrl}/product/${id}`)
       console.log("response: ", response.data);
 
-      setLoadProduct(!loadProduct)
+      setIsSpinner(true)
+      setTimeout(() => {
+        setIsSpinner(false);
+        setLoadProduct(!loadProduct)
+      }, 2000);
 
     } catch (error) {
       console.log("error in getting all products", error);
@@ -103,7 +118,11 @@ function App() {
       })
         .then(response => {
           console.log("response: ", response.data);
-          setLoadProduct(!loadProduct)
+          setIsSpinner(true)
+          setTimeout(() => {
+            setIsSpinner(false);
+            setLoadProduct(!loadProduct)
+          }, 2000);
 
         })
         .catch(err => {
@@ -146,8 +165,11 @@ function App() {
       })
         .then(response => {
           console.log("response: ", response.data);
-          setLoadProduct(!loadProduct)
-
+          setIsSpinner(true)
+          setTimeout(() => {
+            setIsSpinner(false);
+            setLoadProduct(!loadProduct)
+          }, 2000);
         })
         .catch(err => {
           console.log("error: ", err);
@@ -157,6 +179,11 @@ function App() {
 
   return (
     <div className='main'>
+      <div className='spinner-div'>
+        <div className='spinner'>
+        <Spinner animation="grow" variant="dark" />
+        </div>
+      </div>
       <div className="nav">
         Products
       </div>

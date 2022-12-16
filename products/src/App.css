@@ -63,3 +63,18 @@
 .products-container::-webkit-scrollbar-track{
   background-color: transparent;
 }
+
+.spinner-div{
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.233);
+  height: calc(100vh);
+  width: calc(100vw);
+  display: none;
+}
+.spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20%;
+}
