@@ -17,11 +17,10 @@ function App() {
   const handleShow = () => setShow(true);
   //------------------------
 
-  const [products, setProducts] = useState([])
-  const [loadProduct, setLoadProduct] = useState(false)
-  const [isEditMode, setIsEditMode] = useState(false)
-  const [editingProduct, setEditingProduct] = useState(null)
-
+  const [products, setProducts] = useState([]);
+  const [loadProduct, setLoadProduct] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [editingProduct, setEditingProduct] = useState(null);
 
   const getAllProducts = async () => {
     try {
@@ -54,7 +53,6 @@ function App() {
     editFormik.setFieldValue("productName", product.name)
     editFormik.setFieldValue("productPrice", product.price)
     editFormik.setFieldValue("productDescription", product.description)
-   
   }
 
   useEffect(() => {
@@ -62,7 +60,6 @@ function App() {
     getAllProducts()
 
   }, [loadProduct])
-
 
   const myFormik = useFormik({
     initialValues: {
@@ -150,7 +147,6 @@ function App() {
         })
     },
   });
-
 
   return (
     <div className='main'>
@@ -300,8 +296,10 @@ function App() {
                   <td>Rs.{eachProduct?.price}</td>
                   <td>{eachProduct?.description} <br />
                   <button onClick={() => {
-                    confirm("jhc")
-                  deleteProduct(eachProduct._id)
+                    let toConfrim = confirm(`Are you sure to delete the product '${eachProduct.name}'?`);
+                    (toConfrim)?
+                    deleteProduct(eachProduct._id)
+                    :null;
                   }}>Delete</button>
 
                   <button onClick={() => {
@@ -311,7 +309,6 @@ function App() {
                   </td>
                 </tr>
 
-            
               </tbody>
               ))}
 
@@ -344,7 +341,6 @@ function App() {
                 :
                 null
             }
-            
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Product Price</Form.Label>
               <Form.Control
