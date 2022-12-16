@@ -31,7 +31,7 @@ function App() {
 
   const getAllProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:5001/products`)
+      const response = await axios.get(`http://localhost:3000/products`)
       console.log("response: ", response.data);
 
       setProducts(response.data.data.reverse())
