@@ -43,7 +43,7 @@ function App() {
 
   const deleteProduct = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5001/product/${id}`)
+      const response = await axios.delete(`http://localhost:3000/product/${id}`)
       console.log("response: ", response.data);
 
       setLoadProduct(!loadProduct)
@@ -96,7 +96,7 @@ function App() {
     onSubmit: (values) => {
       console.log("values: ", values);
 
-      axios.post(`http://localhost:5001/product`, {
+      axios.post(`http://localhost:3000/product`, {
         name: values.productName,
         price: values.productPrice,
         description: values.productDescription,
@@ -139,7 +139,7 @@ function App() {
     onSubmit: (values) => {
       console.log("values: ", values);
 
-      axios.put(`http://localhost:5001/product/${editingProduct._id}`, {
+      axios.put(`http://localhost:3000/product/${editingProduct._id}`, {
         name: values.productName,
         price: values.productPrice,
         description: values.productDescription,
