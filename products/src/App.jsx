@@ -227,17 +227,17 @@ function App() {
                   <td>{eachProduct?.name}</td>
                   <td>Rs.{eachProduct?.price}</td>
                   <td>{eachProduct?.description} <br />
-                  <button onClick={() => {
+                  <Button size='sm' variant="danger" onClick={() => {
                     let toConfrim = confirm(`Are you sure to delete the product '${eachProduct.name}'?`);
                     (toConfrim)?
                     deleteProduct(eachProduct._id)
                     :null;
-                  }}>Delete</button>
-
-                  <button onClick={() => {
+                  }}>Delete</Button>
+                  
+                  <Button size='sm' variant="secondary" onClick={() => {
                   editMode(eachProduct);
                   handleShow();
-                  }}>Update</button>
+                  }}>Update</Button>
                   </td>
                 </tr>
 
