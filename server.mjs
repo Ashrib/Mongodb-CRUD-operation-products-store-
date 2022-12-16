@@ -38,13 +38,6 @@ app.post('/product', (req, res) => {
     console.log(body.price)
     console.log(body.description)
 
-    // products.push({
-    //     id: `${new Date().getTime()}`,
-    //     name: body.name,
-    //     price: body.price,
-    //     description: body.description
-    // });
-
     productModel.create({
         name: body.name,
         price: body.price,

@@ -85,11 +85,11 @@ function App() {
         productPrice: yup
           .number('Enter your product price')
           .positive("enter positive product price")
-          .required('product name is required'),
+          .required('product price is required'),
 
         productDescription: yup
           .string('Enter your product Description')
-          .required('product name is required')
+          .required('product description is required')
           .min(3, "please enter more then 3 characters ")
           .max(500, "please enter within 20 characters "),
       }),
