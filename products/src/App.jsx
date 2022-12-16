@@ -9,6 +9,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
+let baseUrl = ""
+if (window.location.href.split(":")[0] === "http") {
+  baseUrl = "http://localhost:3000";
+  
+}
+
+
 function App() {
   // for modal
   const [show, setShow] = useState(false);
