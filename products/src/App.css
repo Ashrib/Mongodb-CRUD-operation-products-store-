@@ -22,6 +22,7 @@
   padding: 10px;
   margin: 20px 0px 20px 0px;
   height: 300px;
+  width: 450px;
   border-radius: 5px;
 }
 .theForm>form, .form-row{
@@ -30,6 +31,7 @@
 }
 .theForm>form{
   justify-content: space-around;
+  width: 100%;
 }
 
 .products-container{
@@ -37,7 +39,7 @@
   overflow-y: scroll;
 }
 .form-row>input{
-  width: 400px;
+  width: 100%;
   padding: 2px 5px;
 }
 .form-row>span{
@@ -77,4 +79,9 @@
   justify-content: center;
   align-items: center;
   margin-top: 20%;
+}
+@media screen and (max-width: 450px) {
+  .theForm{
+    width: 90%;
+  } 
 }
