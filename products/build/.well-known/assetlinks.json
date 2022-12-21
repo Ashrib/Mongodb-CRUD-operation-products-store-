@@ -1,0 +1,6 @@
+[{
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target" : { "namespace": "android_app", "package_name": "app.cyclic.fair_worm_culottes.twa",
+                     "sha256_cert_fingerprints": ["E9:CF:EF:BC:CE:F6:31:1B:64:4C:39:A1:28:1D:E0:BF:36:E3:F5:AE:53:9A:DB:88:E5:B1:77:A8:71:3A:D4:89"] }
+      }
+]
